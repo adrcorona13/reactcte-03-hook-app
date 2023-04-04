@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { Memorize } from './assets/06-memos/Memorize'
 import { MemoHook } from './assets/06-memos/MemoHook'
+import { CallbackHook } from './assets/06-memos/CallbackHook'
 // import { CounterApp } from './assets/01-useState/CounterApp'
 // import { CounterWithCustomHook } from './assets/01-useState/CounterWithCustomHook'
 // import { SimpleForm } from './assets/02-useEffect/SimpleForm'
@@ -15,6 +16,6 @@ import { MemoHook } from './assets/06-memos/MemoHook'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
-    <MemoHook/>
+    <CallbackHook/>
   // </React.StrictMode>,
 )
