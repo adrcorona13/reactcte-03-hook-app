@@ -29,9 +29,6 @@ export const useFetch = (url) => {
 
         getFetch();
 
-        return () => {
-            second
-        }
     }, [url])
 
     return {
