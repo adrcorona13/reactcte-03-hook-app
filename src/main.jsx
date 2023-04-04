@@ -6,6 +6,7 @@ import './index.css'
 import { Memorize } from './assets/06-memos/Memorize'
 import { MemoHook } from './assets/06-memos/MemoHook'
 import { CallbackHook } from './assets/06-memos/CallbackHook'
+import { Padre } from './assets/07-tarea-memo/Padre'
 // import { CounterApp } from './assets/01-useState/CounterApp'
 // import { CounterWithCustomHook } from './assets/01-useState/CounterWithCustomHook'
 // import { SimpleForm } from './assets/02-useEffect/SimpleForm'
@@ -16,6 +17,6 @@ import { CallbackHook } from './assets/06-memos/CallbackHook'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
-    <CallbackHook/>
+    <Padre/>
   // </React.StrictMode>,
 )
