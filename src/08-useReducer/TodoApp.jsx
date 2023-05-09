@@ -1,70 +1,29 @@
-import { useEffect, useReducer } from "react";
-import { todoReducer } from "./todoReducer";
-import { TodoList } from "./TodoList";
 import { TodoAdd } from "./TodoAdd";
-
-const initialState = [
-  // {
-  //   id: new Date().getTime(),
-  //   description: "Recolectar la piedra del alma",
-  //   done: false,
-  // },
-  // {
-  //   id: new Date().getTime() * 3,
-  //   description: "Recolectar la piedra del poder",
-  //   done: false,
-  // },
-];
-
-const init = () => {
-  return JSON.parse(localStorage.getItem('todos')) || [];
-}
+import { TodoList } from "./TodoList";
+import { useTodos } from "./hooks/useTodos";
 
 export const TodoApp = () => {
-  const [todos, dispatchTodo] = useReducer(todoReducer, initialState, init);
-
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos])
-  
-  
-  const handleNewTodo = (todo) => {
-    const action = {
-      type: '[TODO] Add',
-      payload: todo
-    }
-    dispatchTodo(action);
-  }
-
-  const handleDeleteTodo = (id) => {
-    dispatchTodo({
-      type: '[TODO] Remove',
-      payload: id
-    })
-  }
-
-  const handleToggleTodo = (id) => {
-    dispatchTodo({
-      type: '[TODO] Toggle',
-      payload: id
-    })
-  }
+  const { todos, handleNewTodo, handleDeleteTodo, handleToggleTodo } =
+    useTodos();
 
   return (
     <>
-      <h1>TodoApp 10 <small>pendientes: 2</small></h1>
+      <h1>
+        TodoApp 10 <small>pendientes: 2</small>
+      </h1>
       <hr />
       <div className="row">
         <div className="col-7">
-            <TodoList 
-              todos={todos}  
-              onDeleteTodo={handleDeleteTodo}
-              onToggleTodo={handleToggleTodo}/>
+          <TodoList
+            todos={todos}
+            onDeleteTodo={handleDeleteTodo}
+            onToggleTodo={handleToggleTodo}
+          />
         </div>
         <div className="col-5">
           <h4>Agregar tarea</h4>
           <hr />
-          <TodoAdd onNewTodo={handleNewTodo}/>
+          <TodoAdd onNewTodo={handleNewTodo} />
         </div>
       </div>
     </>
